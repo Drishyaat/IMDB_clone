@@ -1,0 +1,309 @@
+/* Global Styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure it spans the full viewport */
+  background-color: black; /* Set the global background to black */
+  color: rgb(245, 197, 24); /* Default text color */
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: black;
+  color: rgb(245, 197, 24);
+}
+
+/* Navigation */
+/* .nav {
+  background-color: rgb(18, 18, 18);
+  margin-top: 0rem;
+  padding: 2rem;
+  text-decoration: none;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-item:hover {
+  background-color: blueviolet;
+} */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.sitename {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Allow this element to grow and take up space */
+  justify-content: center; /* Center the "IMDB" title */
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.nav-item:hover {
+  background-color: grey;
+}
+
+.search-result {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+/* Make the search bar cover all available space */
+input {
+  height: 25px;
+  width: 100%; /* Make the input take up all available space */
+  max-width: 400px; /* Optional: limit max width */
+  border-radius: 0.2rem;
+  margin-left: 1rem; /* Add space between title and search bar */
+}
+/* Center the search result */
+.search-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  margin-top: 1rem;
+  text-align: center; /* Optional: center text */
+  width: 100%; /* Ensure it takes full width */
+  max-width: 600px; /* Optional: limit the max width */
+  margin-left: auto; /* Center the result block horizontally */
+  margin-right: auto; /* Center the result block horizontally */
+}
+
+.search-result img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* Ensure image fits without distortion */
+}
+
+/* Optional: Styling for search result text */
+.search-result p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+/* Movie Box Styling */
+.box {
+  width: 151px;
+  background-color: rgb(26, 26, 26);
+  padding: 20px;
+  display: inline-block; /* Ensures inline display */
+  margin: 1rem;
+  border-radius: 0.3rem;
+  color: white;
+  text-align: center;
+  vertical-align: top;
+}
+
+.img-container {
+  width: 100%;
+  height: 224px;
+  display: flex;
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically */
+}
+
+#img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Prevents image clipping */
+}
+
+.title {
+  font-weight: bold;
+  margin: 0.5rem 0;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Avoid multi-line overflow */
+}
+
+.summary {
+  height: auto; /* Allow the summary to grow naturally */
+  max-height: 4.8em; /* Limit max height if necessary */
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Button Styling */
+.watchlistBtn,
+.favBtn {
+  border-radius: 1rem;
+  height: 30px;
+  background-color: #ffffff14;
+  border: none;
+  color: #5799ef;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.favBtn {
+  background-color: #ffffff14;
+}
+
+.watchlistBtn {
+  background-color: #ffffff14;
+}
+
+/* Movie Box Layout Fix - Ensuring inline display */
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/* Link Styling */
+a {
+  color: rgb(245, 197, 24);
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 5px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Toast Message */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  visibility: hidden; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+}
+/* Movie Box Layout Fix - Ensuring consistent background */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgb(238, 220, 64);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  z-index: 1000; /* Ensure it appears above other elements */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0; /* Fully transparent by default */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s; /* Smooth fade-in */
+}
+
+.toast.show {
+  visibility: visible; /* Show toast */
+  opacity: 1; /* Fully visible */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0s; /* Smooth fade-out */
+}
+
+/* Base styling for the form containers */
+.signin-container,
+.signup-container {
+  width: 100%; /* Ensure the container takes up full width of its parent */
+  max-width: 400px; /* Limit the width of the form */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-sizing: border-box; /* Ensure padding is included in the element's total width/height */
+}
+
+/* Styling for the form and form elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Space between form fields */
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  width: 100%; /* Ensure input takes full width of parent */
+  padding: 0.8rem;
+  margin-top: 0.2rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Ensure padding is included in input's width */
+}
+
+/* Styling for buttons */
+button {
+  width: 100%; /* Ensure the button takes full width */
+  padding: 0.6rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  text-align: center;
+}
+
+/* Links for sign up and sign in option */
+.signup-option,
+.signin-option {
+  text-align: center;
+}
+
+.signup-link,
+.signin-link {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.signup-link:hover,
+.signin-link:hover {
+  text-decoration: underline;
+}
